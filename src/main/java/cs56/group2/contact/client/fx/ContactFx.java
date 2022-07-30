@@ -5,6 +5,7 @@ import javafx.beans.property.SimpleStringProperty;
 
 public class ContactFx {
 
+    // First, declare the class properties
     private int id = -1;
     private SimpleStringProperty firstName;
     private SimpleStringProperty lastName;
@@ -21,8 +22,9 @@ public class ContactFx {
     }
 
     public ContactFx(Contact contact) {
-        this();
+        this(); // Calls the constructor with no parameter (seen above)
 
+        // Once the contact has been created, populate it with the information from the Contact object
         this.id = contact.getId();
         this.firstName.set(contact.getFirstName());
         this.middleName.set(contact.getMiddleName());
@@ -32,34 +34,42 @@ public class ContactFx {
     }
 
     public int getId() {
+        // Getter method for ID
         return id;
     }
 
     public void setId(int id) {
+        // Setter method for ID
         this.id = id;
     }
 
     public String getFirstName() {
+        // Returns FirstName as a string
         return firstName.get();
     }
 
     public SimpleStringProperty firstNameProperty() {
+        // Returns FirstName as a SSP
         return firstName;
     }
 
     public void setFirstName(String firstName) {
+        // Sets FirstName SSP to String param
         this.firstName.set(firstName);
     }
 
     public String getLastName() {
+        // Returns LastName as a string
         return lastName.get();
     }
 
     public SimpleStringProperty lastNameProperty() {
+        // Returns LastName as a SSP
         return lastName;
     }
 
     public void setLastName(String lastName) {
+        // Sets LastName SSP to String param
         this.lastName.set(lastName);
     }
 
@@ -99,7 +109,10 @@ public class ContactFx {
         this.cell.set(cell);
     }
 
+    // End of simple Getter/Setters section
+    
     public Contact getContact() {
+        // Creates a contact with the properties of this ContactFX object
         Contact contact = new Contact();
         contact.setId(id);
         contact.setFirstName(firstName.get());
